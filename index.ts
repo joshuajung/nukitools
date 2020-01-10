@@ -34,11 +34,11 @@ async function run() {
     }
     const applicableUsers = users.filter(u => u.name === name)
     const numberOfApplicableUsers = applicableUsers.length
-    console.log(`Found ${numberOfApplicableUsers} users with this name.`)
+    console.log(`Found ${numberOfApplicableUsers} user(s) with this name.`)
     if (numberOfApplicableUsers === 1) {
       const url = `https://api.nuki.io/smartlock/${subject.smartlockId}/auth/${subject.id}`
       const body = {"accountUserId": applicableUsers[0].accountUserId}
-      console.log(`Would now start a post request:`)
+      console.log(`Would now start a POST request:`)
       console.log(url)
       console.log(JSON.stringify(body))
       const promptResponse = await prompts({
@@ -61,6 +61,9 @@ async function run() {
       console.error(`Cannot work with this number of applicable users, not modifying this authorization.`)
     }
   }
+
+  console.log("")
+  console.log("Complete!")
 }
 
 run()

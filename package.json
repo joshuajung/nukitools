@@ -1,7 +1,10 @@
 {
   "name": "nukimerge",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node ."
+  },
   "repository": "git@github.com:joshuajung/nukimerge.git",
   "author": "Joshua Jung <mail@joshua-jung.com>",
   "license": "MIT",
@@ -9,6 +12,8 @@
     "@types/node": "^13.1.6",
     "@types/prompts": "^2.0.3",
     "axios": "^0.19.1",
-    "prompts": "^2.3.0"
+    "prompts": "^2.3.0",
+    "ts-node": "^8.6.0",
+    "typescript": "^3.7.4"
   }
 }
