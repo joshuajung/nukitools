@@ -1,11 +1,11 @@
 {
-  "name": "nukimerge",
+  "name": "nukitools",
   "version": "1.0.0",
   "scripts": {
     "merge": "ts-node merge.ts",
     "import": "ts-node import.ts"
   },
-  "repository": "git@github.com:joshuajung/nukimerge.git",
+  "repository": "git@github.com:joshuajung/nukitools.git",
   "author": "Joshua Jung <mail@joshua-jung.com>",
   "license": "MIT",
   "dependencies": {
