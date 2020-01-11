@@ -1,9 +1,9 @@
 {
   "name": "nukimerge",
   "version": "1.0.0",
-  "main": "index.ts",
   "scripts": {
-    "start": "ts-node ."
+    "merge": "ts-node merge.ts",
+    "import": "ts-node import.ts"
   },
   "repository": "git@github.com:joshuajung/nukimerge.git",
   "author": "Joshua Jung <mail@joshua-jung.com>",

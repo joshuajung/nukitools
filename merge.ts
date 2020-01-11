@@ -67,8 +67,12 @@ async function run() {
         process.exit()
       } else if (promptResponse.confirmed) {
         console.log("⏳  Executing request.")
-        const result = await axios.post(url, body, axiosOptions)
-        console.log(`✅  Result completed, code ${result.status}.`)
+        try {
+          const result = await axios.post(url, body, axiosOptions)
+          console.log(`✅  Request completed, code ${result.status}.`)
+        } catch(e) {
+          console.log(`⭕️  An error occured: ${e}.`)
+        }
       } else {
         console.log("Okay, skipping.")
       }
