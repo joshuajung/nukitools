@@ -1,4 +1,4 @@
-# nukimerge
+# nukitools
 
 This is a collection of helpful scripts for Nuki Web.
 
