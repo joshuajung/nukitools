@@ -7,6 +7,8 @@ async function run() {
     headers: { Authorization: `Bearer: ${apiKey}` }
   }
 
+  const noConfirmation = process.env.NO_CONFIRMATION === "true"
+
   // Get list of users
   const users = (await axios.get("https://api.nuki.io/account/user", {
     headers: { Authorization: `Bearer: ${apiKey}` }
@@ -42,12 +44,17 @@ async function run() {
       console.log(`Would now start a POST request:`)
       console.log(url)
       console.log(JSON.stringify(body))
-      const promptResponse = await prompts({
-        type: 'confirm',
-        name: 'confirmed',
-        message: 'Can you confirm?',
-        initial: false
-      })
+      let promptResponse: {confirmed?: boolean} = {};
+      if (noConfirmation) {
+        promptResponse = {confirmed: true}
+      } else {
+        promptResponse = await prompts({
+          type: 'confirm',
+          name: 'confirmed',
+          message: 'Can you confirm?',
+          initial: false
+        })
+      }
       if (promptResponse.confirmed === undefined) {
         console.log("Stopping execution.")
         process.exit()
