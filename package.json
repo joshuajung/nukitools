@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "merge": "ts-node merge.ts",
-    "import": "ts-node import.ts"
+    "import": "ts-node import.ts",
+    "syncAll": "ts-node syncAll.ts",
+    "findRemote": "ts-node findRemote.ts"
   },
   "repository": "git@github.com:joshuajung/nukitools.git",
   "author": "Joshua Jung <mail@joshua-jung.com>",

@@ -17,20 +17,6 @@ async function run() {
   const authorizations: any[] = (await axios.get("https://api.nuki.io/smartlock/auth", axiosOptions)).data
   console.log(`✅  Received ${authorizations.length} authorizations.`)
 
-  // Just as an additional service: Provide list of users with remote-locking permissions
-  const remoteAuthorizations = authorizations.filter(a => a.remoteAllowed)
-  const remoteableUsers = remoteAuthorizations.reduce((ttl: string[], curr) => {
-    if(ttl.find(i => i === curr.name) === undefined) {
-      ttl.push(curr.name)
-    } 
-    return ttl
-  }, [])
-  console.log("")
-  console.log("⚠️  These users have remote unlocking permissions:")
-  remoteableUsers.forEach(u => {
-    console.log(u)
-  })
-
   // Get authorizations to work on (accountUserId === undefined)
   const unassignedAuthorizations = authorizations.filter(a => a.accountUserId === undefined)
   console.log("")
